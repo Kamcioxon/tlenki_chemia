@@ -92,3 +92,4 @@ document.addEventListener('DOMContentLoaded', () => {
         obserwatorSekcji.observe(sekcja); // Zacznij obserwować sekcję
     });
 });
+
