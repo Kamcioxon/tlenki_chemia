@@ -103,7 +103,6 @@ img:hover {
 .menu-rozwijane:hover .zawartosc-rozwijana {
     display: block; /* To jest najważniejsze - menu pokazuje się po najechaniu na cały obszar .menu-rozwijane */
 }
-
 .strzalka-dol { /* Zmieniono klasę */
     display: inline-block;
     width: 0;
@@ -239,7 +238,7 @@ footer {
     font-size: 19px;
 }
 
-/* Media queries */
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 18px;
@@ -274,22 +273,20 @@ footer {
     .gallery {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
-    .menu-rozwijane .zawartosc-rozwijana { /* Zmieniono klasy */
+    @media (max-width: 768px) {
+    .menu-rozwijane .zawartosc-rozwijana {
         position: static;
         width: 100%;
         box-shadow: none;
         border-radius: 0;
         padding: 0;
+        display: none; /* Domyślnie ukryte – pokaże je JS po kliknięciu */
     }
 
-    .menu-rozwijane:hover .zawartosc-rozwijana { /* Zmieniono klasy */
-        display: none;
+    .zawartosc-rozwijana.show {
+        display: block; /* Pokazuje menu po kliknięciu – dodaje klasę "show" */
     }
-
-    .zawartosc-rozwijana a { /* Zmieniono klasę */
-        padding: 8px 15px;
-        font-size: 14px;
-    }
+}
 }
 
 @media (max-width: 480px) {
