@@ -58,6 +58,63 @@ img:hover {
     transform: scale(1.1);
 }
 
+.menu-rozwijane {
+    position: relative;
+    display: inline-block; /* Zapewnia, że element zajmuje tylko tyle miejsca, ile potrzebuje */
+    /* Dodaj te dwie właściwości, jeśli ich nie masz, lub upewnij się, że nie ma tu negatywnych marginesów */
+    padding: 0; 
+    margin: 0;
+}
+
+.zawartosc-rozwijana {
+    display: none;
+    position: absolute;
+    background-color: #6a0dad;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 0;
+    /* Upewnij się, że padding nie tworzy luki z górnej strony */
+    padding-top: 5px; /* Delikatny padding od góry, aby zagnieżdżone linki nie przylegały od razu do linku głównego */
+    padding-bottom: 10px;
+    border-radius: 0 0 5px 5px;
+    /* Ważne: usuń wszelkie marginesy, które mogłyby oddzielić menu od nadrzędnego elementu */
+    margin-top: 0; 
+}
+
+.zawartosc-rozwijana li {
+    margin: 0; /* Upewnij się, że elementy listy nie mają zewnętrznych marginesów */
+    padding: 0;
+}
+
+.zawartosc-rozwijana a {
+    color: white;
+    padding: 12px 16px; /* Wystarczający padding, aby linki były łatwo klikalne */
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: normal;
+}
+
+.zawartosc-rozwijana a:hover {
+    background-color: #9932cc;
+}
+
+.menu-rozwijane:hover .zawartosc-rozwijana {
+    display: block; /* To jest najważniejsze - menu pokazuje się po najechaniu na cały obszar .menu-rozwijane */
+}
+
+.strzalka-dol { /* Zmieniono klasę */
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    vertical-align: middle;
+    border-top: 5px solid white;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
 .wstep { /* Ta klasa będzie stylizować wszystkie sekcje z class="wstep" */
     margin-bottom: 40px;
     padding: 20px;
@@ -216,6 +273,22 @@ footer {
 
     .gallery {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .menu-rozwijane .zawartosc-rozwijana { /* Zmieniono klasy */
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .menu-rozwijane:hover .zawartosc-rozwijana { /* Zmieniono klasy */
+        display: none;
+    }
+
+    .zawartosc-rozwijana a { /* Zmieniono klasę */
+        padding: 8px 15px;
+        font-size: 14px;
     }
 }
 
